@@ -38,7 +38,7 @@ script = ExtResource("1_ptw73")
 layout_mode = 2
 toggle_mode = true
 action_mode = 0
-text = "Mode"
+text = "Roguelite"
 script = ExtResource("2_mukdq")
 
 [node name="bOptions" type="Button" parent="Container/VBoxContainer"]
