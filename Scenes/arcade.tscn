@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwjvn1ta6iiag"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1m2l"]
+size = Vector3(1, 1, 1.03955)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iojkm"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tudcy"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nty2l"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_khsfg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18134, 0.312575)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.039073)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0199408, -0.992947)
+shape = SubResource("BoxShape3D_w1m2l")
+
+[node name="Decal" type="Decal" parent="Camera3D/StaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00117707, 2.38419e-07, -0.00773764)
+texture_albedo = SubResource("PlaceholderTexture2D_iojkm")
+texture_normal = SubResource("PlaceholderTexture2D_tudcy")
+texture_orm = SubResource("PlaceholderTexture2D_nty2l")
+texture_emission = SubResource("PlaceholderTexture2D_khsfg")
