@@ -1,0 +1,129 @@
+if top:
+    if left:
+        if bottom:
+            if right:
+                # all True
+                playAr[x][y] = 'O'
+            else:
+                # right is empty
+
+        else:
+            if right:
+                # bottom is empty
+
+            else:
+                # bottom and right are empty
+
+    else:
+        if bottom:
+            if right:
+                #left is empty
+
+            else:
+                # eft and right are empty
+
+        else:
+            if right:
+                #  left and bottom are empty
+            else:
+                #  left, bottom, and right are empty
+else:
+    if left:
+        if bottom:
+            if right:
+                # top is empty
+
+            else:
+                # top and right are empty
+
+        else:
+            if right:
+                # top and bottom are empty
+
+            else:
+                # top, bottom, and right are empty
+
+    else:
+        if bottom:
+            if right:
+                # top and left are empty
+
+            else:
+                # top, left, and right are empty
+
+        else:
+            if right:
+                # top, left, and bottom are empty
+
+            else:
+                # all four are empty
+
+# all Vier Seiten sind Room tiles 
+if top and left and bottom and right:
+    return playAr[x][y] = 'O'
+
+# eine Seite offen || sides
+if (top and left and bottom and not right) #right
+or (top and left and not bottom and right) 
+or (top and not left and bottom and right) #left
+or (not top and left and bottom and right): 
+    return '═' if (not left or not right) else  '║'
+
+# zwei Seiten offen ||corners
+if (top and left and not bottom and not right) #bottom right
+or (top and not left and bottom and not right) #left right
+or (not top and left and bottom and not right) #top right
+or (top and not left and not bottom and right) #left bottom
+or (not top and left and not bottom and right) #top bottom
+or (not top and not left and bottom and right):#top left
+    if not bottom and not right:
+        return '╔'
+    if not left and not right:
+        return '═'
+    if not top and not right:
+        return '╚'
+    if not left and not bottom:
+        return '╗'
+    if not top and not bottom:
+        return '║'
+    if not top and not left:
+        return '╝'
+
+# Drei Seiten offen
+if (top and not left and not bottom and not right)
+or (not top and left and not bottom and not right)
+or (not top and not left and bottom and not right)
+or (not top and not left and not bottom and right):
+    return playAr[x][y] = ''
+
+# Alle Seiten offen 
+if not top and not left and not bottom and not right:
+    return testCorners(top_left, top_right, bottom_left, bottom_right)
+
+for i in range(len(wallTesterMatrix)):
+    if (x + wallTesterMatrix[i][0] < 0 or x + wallTesterMatrix[i][0] >= maxX or y + wallTesterMatrix[i][1] < 0 or y + wallTesterMatrix[i][1] >= maxY) or playAr[x + wallTesterMatrix[i][0]][y + wallTesterMatrix[i][1]] == '*':
+        match i:
+            case 0:
+                top_left = True
+            case 1:
+                # top = True
+                top_left = True
+                top_right = True
+            case 2:
+                top_right = True
+            case 3:
+                #left = True
+                top_left = True
+                bottom_left = True
+            case 4:
+                #right = True
+                top_right = True
+                bottom_right = True
+            case 5:
+                bottom_left = True
+            case 6:
+                #bottom = True
+                bottom_left = True
+                bottom_right = True
+            case 7:
+                bottom_right = True
